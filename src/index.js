@@ -31,7 +31,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    AsyncStorage.setItem('nome', nomeInput);
+    nomeInput !== '' ? AsyncStorage.setItem('nome', nomeInput) : null;
   }, [nomeInput]);
 
   const entrar = () => {
