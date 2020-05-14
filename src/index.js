@@ -3,7 +3,6 @@ import {
   View,
   Text,
   StyleSheet,
-  Slider,
   Switch,
   Modal,
   Button,
@@ -14,6 +13,7 @@ import {
   ScrollView,
 } from 'react-native';
 
+import Slider from '@react-native-community/slider';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const App = () => {
