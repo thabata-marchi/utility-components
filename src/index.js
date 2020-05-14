@@ -25,14 +25,23 @@ const App = () => {
   const [nomeInput, setNomeInput] = useState('');
 
   useEffect(() => {
-    AsyncStorage.getItem('nome').then((value) => {
-      setNomeInput(value);
-    });
+    guardaDados();
   }, []);
 
+  //ComponentDidMount - Quando o componente é montado em tela
+  const guardaDados = async () => {
+    await AsyncStorage.getItem('nome').then((value) => {
+      setNomeInput(value);
+    });
+  };
+
   useEffect(() => {
-    nomeInput !== '' ? AsyncStorage.setItem('nome', nomeInput) : null;
+    nomeInput !== '' ? setNome() : null;
   }, [nomeInput]);
+
+  const setNome = async () => {
+    await AsyncStorage.setItem('nome', nomeInput);
+  };
 
   const entrar = () => {
     setModalVisible(true);
